@@ -30,11 +30,19 @@ namespace Courses_HW_2
         public double FindSum()
         {
             List<double> numbers = GetNumbersFromText();
+            if (numbers.Count == 0)
+            {
+                return 0;
+            }
             return numbers.Sum(x => x);
         }
         public double FindMax()
         {
             List<double> numbers = GetNumbersFromText();
+            if(numbers.Count == 0)
+            {
+                return 0;
+            }
             return numbers.Max(x => x);
         }
         public List<double> GetNumbersFromText() // Will find not only integers but also doubles
