@@ -24,6 +24,7 @@ namespace Courses_HW_2
         {
             _text = text;
         }
+        public string Text { get => _text; set => _text = value; }
         public double FindSum()
         {
             List<double> numbers = GetNumbersFromText();
@@ -42,7 +43,11 @@ namespace Courses_HW_2
             }
             return numbers.Max(x => x);
         }
-        public List<double> GetNumbersFromText() // Will find not only integers but also doubles
+        /// <summary>
+        ///  Will find any numbers including integers and doubles from text
+        /// </summary>
+        /// <returns>Array of numbers</returns>
+        public List<double> GetNumbersFromText() 
         {
             string processedText = _text;
             processedText = Regex.Replace(processedText, @"[^0-9.,]+", "|"); // Remove every char that is not related to numbers (except , . and numbers)      
@@ -63,8 +68,11 @@ namespace Courses_HW_2
             }                 
             return numbers;
         }
-        public int IndexOfMaxNumber() // Perfectly works with integer numbers, is not going to work text number like 50000,,,,,,,,,,,,,23 because pattern wont match parsed number
-        {
+        /// <summary>
+        /// Perfectly works with integer numbers, is not going to work text number like 50000,,,,,,,,,,,,,23 because pattern wont match parsed number 
+        /// </summary>
+        /// <returns>First index of max number</returns>
+        public int IndexOfMaxNumber()         {
             int countSpacesAtStart = 0;
             for (int i = 0; i < _text.Length; i++)
             {
