@@ -21,7 +21,7 @@ namespace Courses_HW2_Part_2
             List<int> speeds = carsSpeeds.Values.ToList();
             if(speeds.Count == 0 )
             {
-                return(-1, -1);
+                return (-1, -1);
             }
             var carWithMaxSpeed = speeds.Max(value => value);
             var result = speeds.Where(value => value == carWithMaxSpeed);

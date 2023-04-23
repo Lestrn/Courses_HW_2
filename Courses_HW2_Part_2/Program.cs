@@ -21,8 +21,6 @@
             {
                carsSpeeds.Add($"Car #{i}", random.Next(40, 350));
             }
-            carsSpeeds.Add($"Car #{100}", 2000);
-            carsSpeeds.Add($"Car #{102}", 2000);
             foreach (var carSpeed in carsSpeeds)
             {
                 Console.WriteLine($"{carSpeed.Key} Speed = {carSpeed.Value}");
