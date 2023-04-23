@@ -13,23 +13,23 @@ namespace Courses_HW2_Part_2
     {
         public static (string book, int amountOfPages) FindTheThickestBook(Dictionary<string, int> booksPages)
         {
-            var result = booksPages.FirstOrDefault(x => x.Value == booksPages.Values.Max()); ;
+            var result = booksPages.FirstOrDefault(x => x.Value == booksPages.Values.Max());  
             return (result.Key, result.Value);
         }
         public static (int first, int last) IndexOfFastestCar(Dictionary<string, int> carsSpeeds)
         {
             List<int> speeds = carsSpeeds.Values.ToList();
-            var carWithMaxSpeed = speeds.Max(value => value);
-            if (speeds == null)
+            if(speeds.Count == 0 )
             {
-                return (-1, -1);
+                return(-1, -1);
             }
+            var carWithMaxSpeed = speeds.Max(value => value);
             var result = speeds.Where(value => value == carWithMaxSpeed);
             int firstIndex, lastIndex = -1;
-            firstIndex = speeds.IndexOf(result.First());
-            if (result.Count() > 2)
+            firstIndex = speeds.IndexOf(result.FirstOrDefault());
+            if (result.Count() >= 2)
             {
-                lastIndex = speeds.IndexOf(result.Last());
+                lastIndex = speeds.LastIndexOf(result.LastOrDefault());
                 return (firstIndex, lastIndex);
             }
             return (firstIndex, lastIndex);
